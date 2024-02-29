@@ -7,9 +7,6 @@ setup(
     install_requires=[
         "sagemaker",
         "boto3",
-        "yaml",
-        "os",
-        "dotenv",
     ],
     author="Mattias Kockum",
     author_email="mattias@kockum.net",
