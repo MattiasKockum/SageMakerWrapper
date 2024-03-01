@@ -41,7 +41,7 @@ def launch_training(code_dir="code", config_dir="config"):
             "testing": f"{output_path}/data/testing"
     }
 
-    generate_entrypoint(code_dir=code_dir, parameters=train_parameters)
+    hyperparameters = generate_entrypoint(code_dir=code_dir, parameters=train_parameters)
 
     estimator = PyTorch(
         entry_point="entry-point.py",
@@ -53,7 +53,7 @@ def launch_training(code_dir="code", config_dir="config"):
         instance_count=1,
         volume_size=250,
         output_path=f"{output_path}/models",
-        hyperparameters=train_parameters,
+        hyperparameters=hyperparameters,
         environment={"WANDB_API_KEY": os.getenv("wandb_api_key")}
         )
     estimator.fit(inputs=channels, wait=wait)
