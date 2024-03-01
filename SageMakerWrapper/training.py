@@ -20,6 +20,9 @@ def launch_training(code_dir="code", config_dir="config"):
     with open(f"{config_dir}/train_parameters.yaml", 'r') as file:
         train_parameters = yaml.safe_load(file)
 
+    with open(f"{config_dir}/train_instance.yaml", 'r') as file:
+        train_instance_config = yaml.safe_load(file)
+
     sess = sagemaker.Session()
 
     role = os.getenv("role")
@@ -46,7 +49,7 @@ def launch_training(code_dir="code", config_dir="config"):
         role=role,
         framework_version="1.5.0",
         py_version="py3",
-        instance_type=config["learning-instance"],
+        instance_type=train_instance_config["learning-instance"],
         instance_count=1,
         volume_size=250,
         output_path=f"{output_path}/models",
