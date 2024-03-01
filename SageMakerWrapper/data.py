@@ -8,7 +8,7 @@ import sagemaker
 
 def create_tar_gz(folder_path, output_filename):
     with tarfile.open(output_filename, "w:gz") as tar:
-        tar.add(folder_path, arcname=os.path.basename(folder_path))
+        tar.add(folder_path, arcname=".")
 
 # TODO make folders
 
