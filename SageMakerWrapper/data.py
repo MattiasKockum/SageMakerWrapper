@@ -10,6 +10,8 @@ def create_tar_gz(folder_path, output_filename):
     with tarfile.open(output_filename, "w:gz") as tar:
         tar.add(folder_path, arcname=os.path.basename(folder_path))
 
+# TODO make folders
+
 def upload_data(config_dir="config", data_dir="data"):
     with open(f"{config_dir}/config.yaml", 'r') as file:
         config = yaml.safe_load(file)

@@ -38,7 +38,7 @@ def launch_training(code_dir="code", config_dir="config"):
             "testing": f"{output_path}/data/testing"
     }
 
-    generate_entrypoint(train_parameters)
+    generate_entrypoint(code_dir=code_dir, parameters=train_parameters)
 
     estimator = PyTorch(
         entry_point="entry-point.py",
