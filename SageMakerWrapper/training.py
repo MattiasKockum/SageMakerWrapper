@@ -28,6 +28,7 @@ def launch_training(code_dir="code", config_dir="config"):
     role = os.getenv("role")
 
     prefix = config["prefix"]
+    framework_version = config["framework-version"]
 
     wait = config["wait"] if "wait" in config else False
     follow = config["follow"] if "follow" in config else True
@@ -47,7 +48,7 @@ def launch_training(code_dir="code", config_dir="config"):
         entry_point="entry-point.py",
         source_dir=code_dir,
         role=role,
-        framework_version="1.5.0",
+        framework_version=str(framework_version),
         py_version="py3",
         instance_type=train_instance_config["learning-instance"],
         instance_count=1,
