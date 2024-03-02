@@ -66,7 +66,7 @@ def launch_training(code_dir="code", config_dir="config"):
     print("\nFrom now on the local machine can be disconnected\n")
     print("\nKeep up with the training on Weights&Biases\n")
 
-    while follow:
+    while follow and not wait:
         logs = sess.logs_for_job(job_name, wait=True)
         print(logs)
         if 'Training job completed' in logs:
