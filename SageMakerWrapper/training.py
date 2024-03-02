@@ -29,7 +29,7 @@ def launch_training(code_dir="code", config_dir="config"):
 
     prefix = config["prefix"]
     framework_version = config["framework-version"]
-    py_version = config["py_version"]
+    py_version = config["py-version"]
 
     wait = config["wait"] if "wait" in config else False
     follow = config["follow"] if "follow" in config else True
@@ -50,7 +50,7 @@ def launch_training(code_dir="code", config_dir="config"):
         source_dir=code_dir,
         role=role,
         framework_version=str(framework_version),
-        py_version=py_version,
+        py_version=str(py_version),
         instance_type=train_instance_config["learning-instance"],
         instance_count=1,
         volume_size=250,
