@@ -71,7 +71,7 @@ def launch_training(code_dir="code", config_dir="config"):
     while follow and not wait:
         logs = sess.logs_for_job(job_name, wait=True)
         print(logs)
-        if 'Training job completed' in logs:
+        if logs == None:
             break
         time.sleep(10)
 
